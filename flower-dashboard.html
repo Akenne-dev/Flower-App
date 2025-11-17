@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bloom Dashboard — Welcome</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="flower-dashboard.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero" aria-labelledby="welcome-title">
+      <div class="hero-text">
+        <div class="eyebrow"><i class="fa-solid fa-seedling"></i>&nbsp;Bloom Dashboard</div>
+        <h1 id="welcome-title">Welcome, Flower Lovers 🌸</h1>
+        <p class="lead">Manage your collections, discover new floral arrivals, and build beautiful bouquets. Your garden is waiting.</p>
+
+        <div class="hero-cta">
+          <button class="btn primary" onclick="document.getElementById('flowers').scrollIntoView({behavior:'smooth'})">Explore Dashboard</button>
+          <button class="btn ghost" onclick="alert('Open Collections')">View Collections</button>
+        </div>
+      </div>
+
+      <div class="hero-media" role="img" aria-label="A pastel bouquet">
+        <img src="pretty-african-american-woman-expresses-sincere-emotions-embraces-bouquet-flowers-has-spring-mood.jpg" alt="Hero bouquet">
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Quick stats">
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+        <div>
+          <h3>128</h3>
+          <p>Total Flowers</p>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-heart"></i></div>
+        <div>
+          <h3>16</h3>
+          <p>Favorites</p>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-star"></i></div>
+        <div>
+          <h3>5</h3>
+          <p>New Arrivals</p>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div>
+          <h3>+12%</h3>
+          <p>Growth This Week</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="flowers">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h2 style="margin:0;font-size:20px">Your Collection</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img src="flower_compressed.jpg" alt="Peony blush">
+          <div class="card-body">
+            <h4>Peony Blush $6.99</h4>
+            <p>A blossom of pure elegance.<small></small></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="beautiful-rose-outdoors.jpg" alt="Ranunculus">
+          <div class="card-body">
+            <h4>Ranunculus $11.99</h4>
+            <p>A rose to fall in love with.<small></small></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="spring-portrait-young-woman-with-flowers.jpg" alt="Field daisies">
+          <div class="card-body">
+            <h4>Field Daisies $9.99</h4>
+            <p>A beauty that never fades.<small></small></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="pink-peonies-sunset.jpg" alt="Camellia"> 
+          <div class="card-body">
+            <h4>Camellia $5.99</h4>
+            <p>Every petal tells a story.<small></small></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="IMG_1051.jpeg" alt="Sweet Pea">
+          <div class="card-body">
+            <h4>Sweet Pea --Out of Stock</h4>
+            <p>Let life bloom around you.<small> - Lady Kenny</small></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="close-up-blooming-flower.jpeg" alt="Garden rose">
+          <div class="card-body">
+            <h4>Garden Rose $3.99</h4>
+            <p>A tiny piece of spring.<small></small></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="quote" style="margin-top:22px">
+        <i class="fa-solid fa-quote-left"></i>
+        <div>
+          <strong style="display:block">“May your days unfold like petals in the sun.”</strong>
+          <small style="color:var(--muted)">— Lady Kenny</small>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

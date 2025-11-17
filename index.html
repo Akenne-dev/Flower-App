@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower | SignUp</title>
+  <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="flower-signup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container right-panel-active">
+    <div class="container__form container--signup">
+      <form action="#" class="form" id="form1">
+        <h2 class="form__title">Sign Up</h2>
+        <input type="text" placeholder="Name" class="input" id="namee" />
+        <input type="email" placeholder="Email" class="input" id="email" />
+
+        <div class="password-box">
+          <input type="password" placeholder="Password" class="input" id="password" />
+          <i class="fa fa-eye" style="color: #ffffff;" id="togglePassword" onclick="showPass()"></i>
+        </div>
+
+        <div class="password-box">
+          <input type="password" placeholder="Confirm Password" class="input" id="confirmPass" />
+          <i class="fa fa-eye" style="color: #ffffff;" id="toggleConfirm" onclick="showConfirmPass()"></i>
+        </div>
+
+        <button type="button" id="signUpBtn" class="btn" onclick="signUp()">Sign Up</button>
+        <br>
+        <p>Already have an account? <a href="flower-login.html"><strong>Log in</strong></a></p>
+      </form>
+    </div>
+
+
+    <div class="container__overlay">
+      <div class="overlay">
+        <div class="overlay__panel overlay--left">
+        </div>
+        <div class="overlay__panel overlay--right">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+
+  function showPass() {
+    let input = document.getElementById("password");
+    let icon = document.getElementById("togglePassword");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+
+  function showConfirmPass() {
+    let input = document.getElementById("confirmPass");
+    let icon = document.getElementById("toggleConfirm");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+
+  let userDetails = JSON.parse(localStorage.getItem('userInfo')) || []
+
+  function signUp() {
+    signUpBtn.textContent = 'Loading...';
+    let userName = namee.value.trim()
+    let userEmail = email.value.trim()
+    let userPassword = password.value.trim()
+    let confirmPassword = confirmPass.value.trim()
+
+    setTimeout(() => {
+      if (!userName || !userEmail || !userPassword || !confirmPassword) {
+        alert('All fields are mandatory')
+      } else if (userDetails.find((userDetailsObj) => { return userDetailsObj.userEmail === userEmail })) {
+        alert('User already exist')
+      } else if (userPassword !== confirmPassword) {
+        alert('Password do not match')
+      } else if (userPassword.length < 8) {
+        alert('password must be at least 8 characters')
+      }
+      else {
+
+        let userDetailsObj = {
+          userName,
+          userEmail,
+          userPassword
+        }
+
+        userDetails.push(userDetailsObj)
+        localStorage.setItem('userInfo', JSON.stringify(userDetails))
+        console.log(userDetails);
+        alert('Signup successful')
+        location.href = "flower-login.html";
+
+      }
+      let input = document.getElementById("password");
+      let icon = document.getElementById("togglePassword");
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+
+      signUpBtn.textContent = 'Sign Up';
+    }, 2000);
+  }
+</script> 

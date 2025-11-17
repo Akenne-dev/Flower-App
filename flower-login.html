@@ -1,0 +1,96 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower | LogIn</title>
+  <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="flower-login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container right-panel-active">
+    <div class="container__form container--signup">
+      <form action="#" class="form" id="form1">
+        <h2 class="form__title">Log in</h2>
+        <input type="email" placeholder="Email" class="input" id="loginEmail" />
+
+        <div class="password-box">
+          <input type="password" placeholder="Password" class="input" id="loginPassword" />
+          <i class="fas fa-eye" style="color: #ffffff;" id="togglePassword" onclick="showPass()"></i>
+        </div>
+
+        <button type="button" id="signUpBtn" class="btn" onclick="logIn()">Log In</button>
+        <br>
+        <div class="dont">
+          <p>Don't have an account? <a href="flower-signup.html">Sign up</a></p>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="container__overlay">
+      <div class="overlay">
+        <div class="overlay__panel overlay--left">
+        </div>
+        <div class="overlay__panel overlay--right">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+
+  function showPass() {
+    let input = document.getElementById("loginPassword");
+    let icon = document.getElementById("togglePassword");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+
+  function logIn() {
+        signUpBtn.textContent = 'Loading...';
+    let email = document.getElementById('loginEmail').value.trim();
+    let password = document.getElementById('loginPassword').value.trim();
+
+      setTimeout(() =>{
+    if (!email || !password) {
+      alert('Please fill all fields');
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem('userInfo')) || [];
+    let foundUser = users.find(user => user.userEmail === email);
+
+    if (!foundUser) {
+      alert('Incorrect email');
+      return;
+    }
+
+    if (foundUser.userPassword !== password) {
+      alert('Incorrect password');
+      return;
+    }
+
+    alert('Login successful! Redirecting...');
+          signUpBtn.textContent = 'Log in';
+    location.href = 'flower-dashboard.html';
+            }, 2500)
+  }
+</script>
