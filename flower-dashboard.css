@@ -1,4 +1,4 @@
-    :root {
+   :root {
       --bg: #fff8f4;
       --card: #fff;
       --accent: #6BAF92;
@@ -28,7 +28,6 @@
       margin: 0 auto;
     }
 
-    /* HERO */
     .hero {
       display: flex;
       gap: var(--gap);
@@ -44,6 +43,28 @@
     .hero-text {
       flex: 1;
     }
+
+
+
+    #welcomeTitle {
+      font-size: 32px;
+      font-weight: bold;
+      color: #c34b9b;
+      color: black;
+      animation: slideFromLeft 1.5s ease-out forwards;
+    }
+
+    @keyframes slideFromLeft {
+      0% {
+        transform: translateX(-60px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+
 
     .eyebrow {
       display: inline-flex;
@@ -112,7 +133,6 @@
       display: block
     }
 
-    /* STATS */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -151,7 +171,6 @@
       font-size: 13px
     }
 
-    /* GRID PREVIEW */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -194,7 +213,6 @@
       font-size: 13px
     }
 
-    /* QUOTE BANNER */
     .quote {
       margin-top: 22px;
       background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(249, 220, 229, 0.12));
@@ -209,6 +227,133 @@
     .quote i {
       font-size: 20px
     }
+
+    .click {
+      /* display: flex;
+      align-items: center; */
+
+    }
+
+    .click button {
+      font-size: 17px;
+      font-weight: bold;
+      background-color: transparent;
+      /* width: 120px; */
+      padding: 8px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      box-shadow: 0px 0px 10px 0px rgba(31, 31, 31, 0.46);
+      outline: none;
+      transition: transform .25s ease, box-shadow .25s ease;
+
+    }
+
+    .click button:hover {
+      transform: scale(1.09);
+      box-shadow: 0px 0px 10px 0px rgba(255, 215, 0, 0.55);
+    }
+
+    .clicks {
+      display: flex;
+      justify-content: center;
+      display: none;
+      margin: 50px 0px 0px 180px;
+            color: black;
+
+    }
+
+    .clicks button {
+      font-size: 17px;
+      font-weight: bold;
+      background-color: transparent;
+      width: 120px;
+      padding: 8px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      box-shadow: 0px 0px 10px 0px rgba(31, 31, 31, 0.36);
+      outline: none;
+      transition: transform .25s ease, box-shadow .25s ease;
+      color: black;
+
+    }
+
+    .clicks button:hover {
+      transform: scale(1.09);
+      box-shadow: 0px 0px 10px 0px rgba(255, 215, 0, 0.55);
+    }
+
+    .profile-box {
+  width: 130px;
+  text-align: center;
+
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border: 5px solid white;
+  
+}
+
+.edit-btn {
+  margin-top: 10px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 10px;
+  background: #6BAF92;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  transition: transform .2s;
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+}
+.sec-1{
+  display: flex;
+  gap: 7px;
+}
+#editMenu {
+  display: none;         
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+#editMenu .phots,
+#editMenu .phot {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#editMenu .phots {
+  background: #459974;
+  color: white;
+}
+
+#editMenu .phot {
+  background: #ff4d4d;
+  color: white;
+}
+
+
+
+
 
     @media (max-width:960px) {
       .hero {
@@ -226,6 +371,14 @@
 
       .grid {
         grid-template-columns: repeat(2, 1fr)
+      }
+
+      .click {
+        display: none;
+      }
+
+      .clicks {
+        display: block;
       }
     }
 
@@ -245,4 +398,49 @@
       h1 {
         font-size: 26px
       }
+
+      .click {
+        display: none;
+      }
+
+      .clicks {
+        display: block;
+      }
+      .text{
+        font-size: 63px;
+      }
+    }
+    @media (max-width: 768px) {
+
+  .sec-1 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero-media img {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .wrap section,
+  .stats,
+  #flowers {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .profile-box {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
     }
