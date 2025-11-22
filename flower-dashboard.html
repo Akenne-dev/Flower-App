@@ -1,133 +1,263 @@
-
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bloom Dashboard — Welcome</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
   <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
   <link rel="stylesheet" href="flower-dashboard.css">
 
 </head>
+
 <body>
-  <div class="wrap">
-    <section class="hero" aria-labelledby="welcome-title">
-      <div class="hero-text">
-        <div class="eyebrow"><i class="fa-solid fa-seedling"></i>&nbsp;Bloom Dashboard</div>
-        <h1 id="welcome-title">Welcome, Flower Lovers 🌸</h1>
-        <p class="lead">Manage your collections, discover new floral arrivals, and build beautiful bouquets. Your garden is waiting.</p>
+  <div class="sec-1">
 
-        <div class="hero-cta">
-          <button class="btn primary" onclick="document.getElementById('flowers').scrollIntoView({behavior:'smooth'})">Explore Dashboard</button>
-          <button class="btn ghost" onclick="alert('Open Collections')">View Collections</button>
-        </div>
+    <div class="profile-box">
+      <img id="profileImage" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile"
+        class="profile-pic">
+
+      <button class="edit-btn" onclick="toggleEditMenu()">
+        Edit Profile Photo
+      </button>
+
+
+      <div id="editMenu" style="display:none; margin-top:10px;">
+        <button onclick="document.getElementById('fileInput').click()" class="phots"
+          style="display:block; margin-bottom:6px;">
+          Choose Photo
+        </button>
+
+        <button onclick="removePhoto()" class="phot" style="display:block; background:#ff4d4d; color:white;">
+          Remove Photo
+        </button>
       </div>
 
-      <div class="hero-media" role="img" aria-label="A pastel bouquet">
-        <img src="pretty-african-american-woman-expresses-sincere-emotions-embraces-bouquet-flowers-has-spring-mood.jpg" alt="Hero bouquet">
-      </div>
-    </section>
+      <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="updateProfile()">
+    </div>
 
-    <section class="stats" aria-label="Quick stats">
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
-        <div>
-          <h3>128</h3>
-          <p>Total Flowers</p>
-        </div>
-      </div>
+    <div class="wrap">
+      <section class="hero" aria-labelledby="welcome-title">
+        <div class="hero-text">
+          <div class="eyebrow"><i class="fa-solid fa-seedling"></i>&nbsp;Bloom Dashboard</div>
+          <h1 id="welcomeTitle"></h1>
+          <p class="lead">Manage your collections, discover new floral arrivals, and build beautiful bouquets. Your
+            garden
+            is waiting.</p>
 
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-heart"></i></div>
-        <div>
-          <h3>16</h3>
-          <p>Favorites</p>
-        </div>
-      </div>
-
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-star"></i></div>
-        <div>
-          <h3>5</h3>
-          <p>New Arrivals</p>
-        </div>
-      </div>
-
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-        <div>
-          <h3>+12%</h3>
-          <p>Growth This Week</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="flowers">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <h2 style="margin:0;font-size:20px">Your Collection</h2>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <img src="flower_compressed.jpg" alt="Peony blush">
-          <div class="card-body">
-            <h4>Peony Blush $6.99</h4>
-            <p>A blossom of pure elegance.<small></small></p>
+          <div class="hero-cta">
+            <button class="btn primary"
+              onclick="document.getElementById('flowers').scrollIntoView({behavior:'smooth'})">Explore
+              Dashboard</button>
+            <button class="btn ghost" onclick="alert('Collections Coming Soon...')">View Collections</button>
           </div>
-        </article>
-
-        <article class="card">
-          <img src="beautiful-rose-outdoors.jpg" alt="Ranunculus">
-          <div class="card-body">
-            <h4>Ranunculus $11.99</h4>
-            <p>A rose to fall in love with.<small></small></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="spring-portrait-young-woman-with-flowers.jpg" alt="Field daisies">
-          <div class="card-body">
-            <h4>Field Daisies $9.99</h4>
-            <p>A beauty that never fades.<small></small></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="pink-peonies-sunset.jpg" alt="Camellia"> 
-          <div class="card-body">
-            <h4>Camellia $5.99</h4>
-            <p>Every petal tells a story.<small></small></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="IMG_1051.jpeg" alt="Sweet Pea">
-          <div class="card-body">
-            <h4>Sweet Pea --Out of Stock</h4>
-            <p>Let life bloom around you.<small> - Lady Kenny</small></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="close-up-blooming-flower.jpeg" alt="Garden rose">
-          <div class="card-body">
-            <h4>Garden Rose $3.99</h4>
-            <p>A tiny piece of spring.<small></small></p>
-          </div>
-        </article>
-      </div>
-
-      <div class="quote" style="margin-top:22px">
-        <i class="fa-solid fa-quote-left"></i>
-        <div>
-          <strong style="display:block">“May your days unfold like petals in the sun.”</strong>
-          <small style="color:var(--muted)">— Lady Kenny</small>
         </div>
-      </div>
-    </section>
+
+        <div class="hero-media" role="img" aria-label="A pastel bouquet">
+          <img
+            src="pretty-african-american-woman-expresses-sincere-emotions-embraces-bouquet-flowers-has-spring-mood.jpg"
+            alt="Hero bouquet">
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Quick stats">
+        <div class="stat">
+          <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+          <div>
+            <h3>128</h3>
+            <p>Total Flowers</p>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="icon"><i class="fa-solid fa-heart"></i></div>
+          <div>
+            <h3>16</h3>
+            <p>Favorites</p>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="icon"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <h3>5</h3>
+            <p>New Arrivals</p>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <h3>+12%</h3>
+            <p>Growth This Week</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="flowers">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h2 style="margin:0;font-size:20px">Your Collection</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <img src="flower_compressed.jpg" alt="Peony blush">
+            <div class="card-body">
+              <h4>Peony Blush $6.99</h4>
+              <p>A blossom of pure elegance.<small></small></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="beautiful-rose-outdoors.jpg" alt="Ranunculus">
+            <div class="card-body">
+              <h4>Ranunculus $11.99</h4>
+              <p>A rose to fall in love with.<small></small></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="spring-portrait-young-woman-with-flowers.jpg" alt="Field daisies">
+            <div class="card-body">
+              <h4>Field Daisies $9.99</h4>
+              <p>A beauty that never fades.<small></small></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="pink-peonies-sunset.jpg" alt="Camellia">
+            <div class="card-body">
+              <h4>Camellia $5.99</h4>
+              <p>Every petal tells a story.<small></small></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="IMG_1051.jpeg" alt="Sweet Pea">
+            <div class="card-body">
+              <h4>Sweet Pea --Out of Stock</h4>
+              <p>Let life bloom around you.<small> - Lady Kenny</small></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="close-up-blooming-flower.jpeg" alt="Garden rose">
+            <div class="card-body">
+              <h4>Garden Rose $3.99</h4>
+              <p>A tiny piece of spring.<small></small></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="quote" style="margin-top:22px">
+          <i class="fa-solid fa-quote-left"></i>
+          <div>
+            <strong style="display:block">“May your days unfold like petals in the sun.”</strong>
+            <small style="color:var(--muted)">— Lady Kenny</small>
+          </div>
+        </div>
+        <div class="clicks">
+          <button onclick="logOut()">Log Out <svg xmlns="http://www.w3.org/2000/svg" height="20px"
+              viewBox="0 -960 960 960" width="20px" fill="#000000">
+              <path
+                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-84 31.5-156.5T197-763l56 56q-44 44-68.5 102T160-480q0 134 93 227t227 93q134 0 227-93t93-227q0-67-24.5-125T707-707l56-56q54 54 85.5 126.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-360v-440h80v440h-80Z" />
+            </svg></button>
+        </div>
+      </section>
+    </div>
+    <div class="click">
+      <button onclick="logOut()">Log Out <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+          width="20px" fill="#000000">
+          <path
+            d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-84 31.5-156.5T197-763l56 56q-44 44-68.5 102T160-480q0 134 93 227t227 93q134 0 227-93t93-227q0-67-24.5-125T707-707l56-56q54 54 85.5 126.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-360v-440h80v440h-80Z" />
+        </svg></button>
+    </div>
   </div>
 </body>
+
 </html>
+
+
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "flower-login.html";
+  }
+
+  let users = JSON.parse(localStorage.getItem('userInfo')) || [];
+  let currentUserIndex = parseInt(localStorage.getItem('currentUserIndex')) || 0;
+  let currentUser = users[currentUserIndex];
+
+  let welcome = document.getElementById('welcomeTitle')
+welcome.innerHTML = `Hey ${currentUser.userName}! Welcome to Flower Lovers 🌸`;
+  const profileImg = document.getElementById("profileImage");
+  const editMenu = document.getElementById("editMenu");
+  const chooseBtn = document.querySelector("#editMenu .phots");
+  const removeBtn = document.querySelector("#editMenu .phot");
+
+  function loadProfileImage() {
+    if (currentUser && currentUser.profilePic) {
+      profileImg.src = currentUser.profilePic;
+      chooseBtn.style.display = "block";
+      removeBtn.style.display = "block";
+    } else {
+      profileImg.src = "https://cdn-icons-png.flaticon.com/512/847/847969.png";
+      chooseBtn.style.display = "block";
+      removeBtn.style.display = "none";
+    }
+  }
+
+  loadProfileImage();
+
+  function updateProfile() {
+    const file = document.getElementById("fileInput").files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const base64 = e.target.result;
+
+      currentUser.profilePic = base64;
+      users[currentUserIndex] = currentUser;
+      localStorage.setItem("userInfo", JSON.stringify(users));
+
+      profileImg.src = base64;
+      chooseBtn.style.display = "block";  
+      removeBtn.style.display = "block";  
+      editMenu.style.display = "none";
+    }
+    reader.readAsDataURL(file);
+  }
+
+  function toggleEditMenu() {
+    if (!editMenu) return;
+    editMenu.style.display = editMenu.style.display === "flex" ? "none" : "flex";
+  }
+
+  function removePhoto() {
+    if (!confirm("Are you sure you want to remove your profile photo?")) return;
+
+    currentUser.profilePic = null;
+    users[currentUserIndex] = currentUser;
+    localStorage.setItem("userInfo", JSON.stringify(users));
+
+    profileImg.src = "https://cdn-icons-png.flaticon.com/512/847/847969.png";
+    chooseBtn.style.display = "block"; 
+    removeBtn.style.display = "none";
+    editMenu.style.display = "none";
+
+    alert("Profile photo removed successfully.");
+  }
+
+  // Logout
+  function logOut() {
+    if (confirm("Are you sure you want to log out?")) {
+      localStorage.removeItem("currentUserIndex");
+      location.href = "flower-login.html";
+    }
+  }
+</script>
