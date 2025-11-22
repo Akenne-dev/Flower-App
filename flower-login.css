@@ -152,6 +152,9 @@ body {
 .container.right-panel-active .overlay--left {
 	transform: translateX(0);
 }
+.container.right-panel-active{
+    margin-bottom: 90px;
+}
 
 .overlay--right {
 	right: 0;
@@ -281,7 +284,6 @@ a{
     color: blue;
 }
 
-/* ------------------ MEDIA QUERIES ------------------ */
 
 
 @media (max-width: 1024px) {
@@ -453,6 +455,10 @@ a{
     .btn {
         font-size: 15px;
         padding: 0.8rem 3rem;
+    }
+        #text{
+        font-size: 16px;
+        margin-top: 20px;
     }
 }
 
