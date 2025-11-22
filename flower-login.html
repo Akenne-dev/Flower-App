@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +9,30 @@
   <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
   <link rel="stylesheet" href="flower-login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <style>
+    .login-message {
+      font-size: 26px;
+      font-weight: 600;
+      color: #FFD700;
+      color: white;
+      text-align: center;
+      margin-top: 15px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.5s ease;
+      white-space: nowrap;
+    }
+
+    .login-message.active {
+      opacity: 1;
+      transform: translateY(0);
+      animation: glowPulse 1.5s infinite alternate;
+    }
+  </style>
 </head>
 
 <body>
+  <p id="text" class="login-message"></p>
   <div class="container right-panel-active">
     <div class="container__form container--signup">
       <form action="#" class="form" id="form1">
@@ -29,7 +47,7 @@
         <button type="button" id="signUpBtn" class="btn" onclick="logIn()">Log In</button>
         <br>
         <div class="dont">
-          <p>Don't have an account? <a href="flower-signup.html">Sign up</a></p>
+          <p>Don't have an account? <a href="index.html">Sign up</a></p>
         </div>
       </form>
     </div>
@@ -65,32 +83,49 @@
   }
 
   function logIn() {
-        signUpBtn.textContent = 'Loading...';
+    signUpBtn.textContent = 'Loading...';
+    signUpBtn.disabled = true
     let email = document.getElementById('loginEmail').value.trim();
     let password = document.getElementById('loginPassword').value.trim();
 
-      setTimeout(() =>{
-    if (!email || !password) {
-      alert('Please fill all fields');
-      return;
-    }
 
-    let users = JSON.parse(localStorage.getItem('userInfo')) || [];
-    let foundUser = users.find(user => user.userEmail === email);
+    setTimeout(() => {
+      if (!email || !password) {
+        alert('Please fill all fields');
+        return;
+      }
 
-    if (!foundUser) {
-      alert('Incorrect email');
-      return;
-    }
+      let users = JSON.parse(localStorage.getItem('userInfo')) || [];
+      let foundUser = users.find(user => user.userEmail === email);
 
-    if (foundUser.userPassword !== password) {
-      alert('Incorrect password');
-      return;
-    }
+      if (!foundUser) {
+        alert('Incorrect email');
+        return;
+      }
 
-    alert('Login successful! Redirecting...');
-          signUpBtn.textContent = 'Log in';
-    location.href = 'flower-dashboard.html';
-            }, 2500)
+      if (foundUser.userPassword !== password) {
+        alert('Incorrect password');
+        return;
+      }
+
+
+      let foundNumber = users.findIndex((userObj, i, arr) => {
+        return userObj.userEmail === foundUser.userEmail
+      })
+      localStorage.setItem('currentUserIndex', foundNumber)
+      localStorage.setItem("loggedIn", "true");
+      text.innerHTML = "✨ Login successful! Redirecting...";
+      text.classList.add('active');
+
+      setTimeout(() => {
+        location.href = "flower-dashboard.html";
+      }, 3000)
+
+
+
+      signUpBtn.textContent = 'Log in';
+      signUpBtn.disabled = false
+
+    }, 1500)
   }
 </script>
