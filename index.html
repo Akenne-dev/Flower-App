@@ -9,14 +9,44 @@
   <link rel="shortcut icon" href="closeup-shot-beautiful-pink-flowers-garden-vintage-style.jpg" type="image/x-icon">
   <link rel="stylesheet" href="flower-signup.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <style>
+    .login-message {
+      font-size: 20px;
+      font-weight: 600;
+      color: #FFD700;
+      color: white;
+      text-align: center;
+      margin-top: 15px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.5s ease;
+      white-space: nowrap;
+    }
+
+    .login-message.active {
+      opacity: 1;
+      transform: translateY(0);
+      animation: glowPulse 1.5s infinite alternate;
+    }
+    @keyframes glowPulse {
+  from {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+  }
+}
+
+  </style>
 </head>
 
 <body>
+    <p id="text" class="login-message"></p>
   <div class="container right-panel-active">
     <div class="container__form container--signup">
       <form action="#" class="form" id="form1">
         <h2 class="form__title">Sign Up</h2>
-        <input type="text" placeholder="Name" class="input" id="namee" />
+        <input type="text" placeholder="Username" class="input" id="namee" />
         <input type="email" placeholder="Email" class="input" id="email" />
 
         <div class="password-box">
@@ -84,7 +114,10 @@
 
   function signUp() {
     signUpBtn.textContent = 'Loading...';
-    let userName = namee.value.trim()
+    signUpBtn.disabled = true
+    let rawName = namee.value.trim();
+    let userName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
     let userEmail = email.value.trim()
     let userPassword = password.value.trim()
     let confirmPassword = confirmPass.value.trim()
@@ -110,24 +143,17 @@
         userDetails.push(userDetailsObj)
         localStorage.setItem('userInfo', JSON.stringify(userDetails))
         console.log(userDetails);
-        alert('Signup successful')
+              text.innerHTML = "✨ Sign Up successful! Redirecting...";
+      text.classList.add('active');
+            setTimeout(() => {
         location.href = "flower-login.html";
+      }, 3000)
 
-      }
-      let input = document.getElementById("password");
-      let icon = document.getElementById("togglePassword");
-
-      if (input.type === "password") {
-        input.type = "text";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-      } else {
-        input.type = "password";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
       }
 
       signUpBtn.textContent = 'Sign Up';
+          signUpBtn.disabled = false
+
     }, 2000);
   }
-</script> 
+</script>
